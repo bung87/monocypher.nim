@@ -4,6 +4,8 @@ version     = "0.2.1"
 author      = "Mark Spanbroek"
 description = "Monocypher"
 license     = "MIT"
+
+srcDir        = "src"
 skipDirs =  @["tests"]
 
 installExt = @["nim", "c", "h"]
