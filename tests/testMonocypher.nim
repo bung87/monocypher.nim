@@ -1,5 +1,5 @@
 import unittest
-import knownhashes
+import ./knownhashes
 import sysrandom
 import monocypher
 

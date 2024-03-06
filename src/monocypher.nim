@@ -1,5 +1,8 @@
-from monocypher/cImports as c import nil
+from monocypher/header as c import nil
 import monocypher/cHelpers
+
+template crypto_key_exchange_public_key*(args: varargs[untyped]) =
+  c.crypto_x25519_public_key(args)
 
 type
   Hash* = array[64, byte]
@@ -18,7 +21,7 @@ func crypto_blake2b*(message: string, key: Bytes = []): Hash =
   crypto_blake2b(cast[seq[byte]](message), key)
 
 func crypto_key_exchange_public_key*(secretKey: Key): Key =
-  c.crypto_key_exchange_public_key(result, secretKey)
+  crypto_key_exchange_public_key(result, secretKey)
 
 func crypto_key_exchange*(yourSecretKey, theirPublicKey: Key): Key =
   c.crypto_key_exchange(result, yourSecretKey, theirPublicKey)
